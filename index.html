@@ -1,1 +1,525 @@
+<html><div id="container">
 
+<script type="text/javascript">
+function changeLang(Obj){
+	index_nub = Obj.selectedIndex;
+	O_value=Obj.options[Obj.selectedIndex].value;
+	if (O_value=="ja"){
+		location.href="https://plas.soka.ac.jp/csp/plas/login.csp";
+		return;
+	} else if (O_value=="en") {
+		location.href="https://plas.soka.ac.jp/csp/eplas/login.csp";
+		return;
+	} else {
+		return;
+	}
+}
+</script>
+
+
+<style type="text/css">
+	.menu-onlinelecture{
+		font-size: 14px;
+		color: #fff !important;
+		background-color: #28a745;
+		border-color: #28a745;
+		display: inline-block;
+		font-weight: 400;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		border: 1px solid transparent;
+		padding: 8px 10px;
+		line-height: 1.25;
+		border-radius: 4px;
+		font-family:"Helvetica Neue", Helvetica, Arial, "游ゴシック体", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif
+	}
+	#online-login-dialog div{
+		margin:20px 0;
+	}
+	.menu-box{
+		font-size: 14px;
+		color: #666;
+		background-color: #fff;
+		border-color: #666;
+		display: inline-block;
+		font-weight: 400;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		border: 1px solid #666;
+		padding: 8px 10px;
+		line-height: 1.25;
+		border-radius: 4px;
+		font-family:"Helvetica Neue", Helvetica, Arial, "游ゴシック体", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif
+	}
+</style>
+
+<!-- Header Area Start-->
+<div id="banner">
+
+
+
+<script type="text/javascript">
+var isiPad=false;
+var ua = window.navigator.userAgent.toLowerCase();
+window.addEventListener("load",function(){
+	isiPad = ua.indexOf('macintosh') > -1 && 'ontouchend' in document;
+	if(isiPad){
+		document.cookie = 'isiPad='+isiPad;
+	}
+	
+},false);
+</script>
+
+
+<!-- Header Start-->
+<div style="float:left;"><img src="imgtop/sitetitle.jpg" width="400" height="50"></div>
+<div style="float:right;margin:25px 10px 0px 5px;">
+	<select style="color:#555555;font-size:12px;" onchange="changeLang(this);">
+		<option value="">Language</option>
+		<option value="ja">Japanese</option>
+		<option value="en">English</option>
+	</select>
+</div>
+<div style="float:right;margin-top:25px;"><a href="mailto:support@soka.ac.jp"><img src="imgtop/mail_iso.jpg" width="90" height="20" border="0"></a></div>
+<div style="float:right;margin-top:25px;"><a href="#" onclick="displayStaticMessage('<div class=text style=text-align:right;margin:5px;><a href=\'#\' onclick=\'closeMessage();return false\'>［Ｘ］閉じる</a></div><div style=\'margin:0px 10px 20px 10px;\'><div class=title style=margin-top:0px;>学習支援ポータルの動作環境</div><span class=text>　動作確認の取れている対応ブラウザは以下のとおりです。</span><div class=textarea2><span class=subtitle>■Windows</span><div style=margin-left:5px;>・Google Chrome<br>・Microsoft Edge<br>・Mozilla Firefox</div><br><span class=subtitle>■Macintosh</span><div style=margin-left:5px;>・Safari<br>・Google Chrome<br>・Mozilla Firefox</div></div></div>',false);return false"><img src="imgtop/browser.jpg" width="90" height="20" border="0"></a></div>
+<div style="clear:both;"></div>
+
+<!-- Header End-->
+
+</div>
+<!-- Header Area End-->
+
+
+<!-- Side Area Start-->
+<div id="links-left">
+<form action="" method="post" name="login" onsubmit="return false;" style="margin-bottom:3px;">
+
+
+<div class="sidetitle" style="margin-top:5px;"><i class="fa fa-sign-in"></i> ポータルログイン</div>
+<div class="loginarea" style="margin-bottom:0px;">
+<img src="imgtop/usename.jpg" width="100" height="15"><br>
+
+<input type="text" name="un" style="width:150px;ime-mode:disabled;"><br>
+
+<img src="imgtop/password.jpg" width="100" height="15"><br>
+<input type="password" name="pw" style="width:150px;">
+<input type="submit" name="Submit" value="ログイン" style="margin-left:5px;width:62px;font-size:12px;" onclick="cspHttpServerMethod('1Ji4mH7ylVaVqQMGbzVUPZ_L950GEsfEFrn3Zs6U1_M-',self.document.login.un.value,self.document.login.pw.value,2);">
+</div>
+</form>
+
+<!--==================================================-->
+<script type="text/javascript">
+$(function() {
+	$("#online-login").click(function() {
+		$("#online-login-dialog").dialog({
+			modal:true,
+			width:410,
+			height:360,
+			title:"オンライン授業専用ログイン",
+			position: {my: "center top", at: "center top"},
+			buttons: {
+			"ログイン": function() {
+				onlinelogin();
+				}
+			}
+		});
+	});
+});
+var onlinelogin=function(){
+	cspHttpServerMethod('3x_y98nR5W6$K8QznSlK7Dp18GDJ5dBwZD44HRUpJLOVQBoNs9oRtEZvA5uE3TnE',$("#online-un").val(),$("#online-pw").val(),1);
+}
+</script>
+<style type="text/css">
+	.menu-onlinelecture{
+		font-size: 14px;
+		color: #fff !important;
+		background-color: #28a745;
+		border-color: #28a745;
+		display: inline-block;
+		font-weight: 400;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		border: 1px solid transparent;
+		padding: 8px 10px;
+		line-height: 1.25;
+		border-radius: 4px;
+		font-family:"Helvetica Neue", Helvetica, Arial, "游ゴシック体", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif
+	}
+	#online-login-dialog div{
+		margin:20px 0;
+	}
+	.menu-box{
+		font-size: 14px;
+		color: #666;
+		background-color: #fff;
+		border-color: #666;
+		display: inline-block;
+		font-weight: 400;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		border: 1px solid #666;
+		padding: 8px 10px;
+		line-height: 1.25;
+		border-radius: 4px;
+		font-family:"Helvetica Neue", Helvetica, Arial, "游ゴシック体", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif
+	}
+</style>
+<div style="text-align:center;margin:0px 7px 10px 0px;">
+	<div style="font-size:11px;font-weight:normal;color:#ff0000;">授業開始時はこちらをご利用ください</div>
+	<a href="javascript:void(0);" id="online-login" class="menu-onlinelecture">オンライン授業専用ログイン</a>
+</div>
+<div id="online-login-dialog" style="display:none;">
+	<div>
+		<img src="imgtop/usename.jpg" width="100" height="15">
+		<input type="text" id="online-un" style="width:150px;ime-mode:disabled;">
+	</div>
+	<div>
+		<img src="imgtop/password.jpg" width="100" height="15">
+		<input type="password" id="online-pw" style="width:150px;">
+	</div>
+	<div class="text">
+		こちらからログインすると、オンライン授業画面のみ利用できます。<br>
+		ポータルサイトにログインしにくい場合は、こちらからログインしてください。
+		<span style="color:#ff0000;">（学生専用）</span>
+	</div>
+</div>
+<!--==================================================-->
+<div style="text-align:center;margin:0 7px 15px 0;">
+	<a href="https://plas.soka.ac.jp/cedu/pageplas.logingk.cls" class="menu-box">
+	<i class="fa fa-desktop fa-gray fa-fw"></i>通教学生ポータルはコチラ
+	</a>
+</div>
+
+<div class="sidetitle"><i class="fa fa-envelope-o"></i> メール関連</div>
+<div class="side">
+<fieldset style="margin:0px 5px 5px -8px;padding:2px;" class="menu-box">
+<legend>学生用</legend>
+<div style="margin:1px 5px;width:190px;">
+	<a href="http://mail.soka-u.jp/" target="_blank" style="font-size:12px;">G-mail ログイン画面<br> <b>@soka-u.jp</b></a>
+</div>
+</fieldset>
+<fieldset style="margin:0px 5px 5px -8px;padding:2px;" class="menu-box">
+<legend>教職員用</legend>
+<div style="margin:1px 5px;width:190px;">
+	<a href="https://outlook.office.com/mail/" target="_blank" style="font-size:12px;">WEBメール ログイン画面<br> <b>@soka.ac.jp</b></a><br>
+</div>
+</fieldset>
+</div>
+
+<div class="sidetitle"><i class="fa fa-file-text-o"></i> ポータルマニュアル</div>
+<div class="side">
+<a href="files/manual/portal_guide_teacher.pdf" target="_blank">ポータル機能概要（教員用）</a><br>
+<a href="files/manual/portal_guide_student.pdf" target="_blank">ポータル機能概要（学生用）</a><br>
+<a href="files/manual/kihon_manual_teacher.pdf" target="_blank">ポータル基本操作マニュアル（教員用）</a><br>
+<a href="files/manual/kihon_manual_student.pdf" target="_blank">ポータル基本操作マニュアル（学生用）</a><br>
+</div>
+
+<div class="sidetitle"><i class="fa fa-external-link"></i> 各種ポータルリンク</div>
+<div class="side">
+<a href="https://plas.soka.ac.jp/csp/plassm/login.csp">スマホ版ポータルサイト</a><br>
+<a href="https://guardian.soka.ac.jp/">保護者ポータルサイト</a> <span style="color:#ff0000;">New!</span><br>
+<a href="https://plas.soka.ac.jp/cedu/pageplas.logingk.cls">通教学生ポータルサイト</a><br>
+<a href="https://fresh.soka.ac.jp/">入学支援システム</a> <span style="color:#ff0000;">New!</span><br>
+</div>
+
+<div class="sidetitle"><i class="fa fa-external-link"></i> 大学関連リンク</div>
+<div class="side">
+<a href="http://www.soka.ac.jp/" target="_blank">創価大学</a><br>
+<a href="http://www.soka.ac.jp/swc/" target="_blank">創価女子短期大学</a><br>
+<a href="https://itsupport.soka.ac.jp/" target="_blank">IT Support Desk</a><br>
+<a href="http://lib.soka.ac.jp/" target="_blank">中央図書館</a><br>
+<a href="https://www.soka.ac.jp/fd/" target="_blank">全学ＦＤ委員会</a><br>
+<a href="https://www.soka.ac.jp/seed/" target="_blank">学士課程教育機構</a><br>
+<a href="https://plas.soka.ac.jp/cedu/pageplas.logink.cls" target="_self">教員用通教システム</a><br>
+<a href="https://sogakuservice.co.jp/" target="_blank">創学サービス</a><br>
+</div>
+
+<!--
+<div class="sidetitle">検索サービス</div>
+<form method="GET" name="f" action="https://www.google.com/search">　<img src="imgtop/icon_google.jpg" width="60" height="18" border="0"><input type=hidden name=oe value="UTF-8"><input type="text" name="q" size="15" maxlength="255" value="" style="width:100px;">　<input type="hidden" name="hl" value="ja"><input type="submit" name="btnG" value="検索"></form>
+-->
+</div>
+<!-- Side Area End-->
+
+
+
+<!-- Content Area Start-->
+<div id="content"><img src="imgtop/topimg.jpg" width="600" height="280">
+  <!-- 2.Sub Contents Start-->
+<div class="subcontents">
+	<div class="textarea">
+
+	<!--特別アナウンス情報-->
+	
+
+	
+	
+	
+	
+	<!--<csp:if condition=(ua="iP")!(ua="An")>-->
+		<a href="https://plas.soka.ac.jp/csp/plassm/login.csp"><img src="img/banner32.jpg" width="580" height="50" border="0" style="border:solid 1px #6079dd;"></a>
+	<!--</csp:if>-->
+
+	<!--臨時アナウンス情報-->
+	<div class="box" style="background-color:#ffeeee;width:570px;line-height:110%;">
+	<div style="margin:10px;">
+	●<span style="color:#eb2c00;text-decoration:underline;">使用ブラウザについて</span><br>	
+	　ご使用のブラウザ等の環境により、正しく表示されない可能性がございます。<br>
+	　その場合、別のブラウザをお試しください。
+	  <br>
+	<!--
+	●<span style="color:#eb2c00;text-decoration:underline;">Microsoft Edgeをご利用の方へ</span><br>
+	　Windows 10 では初期ブラウザが Microsoft Edge に設定されております。<br>
+	　Microsoft Edgeで PLASが正常に動作しない場合、他ブラウザ（Internet ExplorerやChrome、<br>	
+	　Firefoxなど）をご利用いただきますようお願いいたします。
+	  <br>
+	-->
+
+	</div>
+	</div>
+	
+	<!--常設インフォメーション情報-->
+	<div class="box" style="width:570px;margin-bottom:10px;line-height:110%;">
+	<div style="margin:10px;">
+
+	●<span style="color:#eb2c00;text-decoration:underline;">利用上の注意</span><br>
+	 <div class="text" style="margin:2px 10px;">
+		　ポータルサイトは、複数ウィンドウや複数タブで同時にログインし操作すると、一方の操作に
+		よって生成されるブラウザ内部の保持情報の影響により、他方が誤動作する可能性があります。<br>
+		上記の理由により，複数のウィンドウや複数のタブによる<span style="color:#eb2c00;">二重ログインはしないで下さい。</span><br>
+	 </div>
+	<br>
+
+	
+	●<span style="color:#eb2c00;text-decoration:underline;">操作についての注意点</span><br>
+	 <div class="text" style="margin:2px 10px;">
+	　Webブラウザの<span style="color:#eb2c00;">「進む」・「戻る」ボタンは使用しないで下さい。</span><br>
+	 </div>
+	<br>
+
+	●<span style="color:#eb2c00;text-decoration:underline;">ポータルサイト利用停止時間のお知らせ</span><br>
+	 <div class="text" style="margin:2px 10px;">
+	　ポータルサイトでは、<span style="color:#eb2c00;">毎日午前１時～午前４時</span>にかけてデータ更新処理を行っているため、その時間帯は利用できません。ご了承ください。<br>
+	 </div>
+	<br>
+	●自動強制ログアウトについて<br>
+	 <div class="text" style="margin:2px 10px;">
+	　ポータルログイン後、同じ画面のまま<span style="color:#eb2c00;">一定時間</span>そのままにしておくと、自動的に強制ログアウトします。<br>
+	 </div>
+	</div>
+	</div>
+	
+	
+	<!-- 大学ホームページ情報確認 -->
+	
+	
+	
+	
+	<!-- 大学トップページ新着情報 -->
+	<!--
+	<server>
+	If stopflg=0 {
+		Kill rss
+		Set cnt=7
+		Do ##class(base.rssreader).SokaNewsGetRss(cnt,.rss)
+	}
+	</server>
+	<div class="boxw" style="width:285;height:200px;float:left;">
+		<a href="http://www.soka.ac.jp" target="_blank">
+		  <img src="imgtop/subtitle_sokanews.jpg" width="285" height="30" border=0></a>
+		<div class="text" style="margin:5px;line-height:1.2em;">
+		  <csp:if condition=stopflg=0>
+			<csp:loop counter="i" from="1" to="#(cnt)#">
+				<img src="img/point-arrow.jpg" width="11" height="11" align="absmiddle">
+				<a href="#($G(rss(i,"link")))#" target="_blank">
+
+
+				#(##class(base.convert).subcv091($G(rss(i,"title")),42))#</a><br>
+			</csp:loop>
+		  <csp:else>
+				ただいま創価大学ホームページの情報を取得できません。
+		  </csp:if>
+			　<div style="font-size:9px;text-align:right;">▼<a href="http://www.soka.ac.jp" target="_blank">サイトを表示...</a></div>
+		</div>
+
+	<server>Kill rss</server>
+	</div>
+-->
+	<!-- VOICE新着情報 -->
+	<!--
+	<server>
+	If stopflg=0 {
+		Kill rss
+		Set cnt=7
+		Do ##class(base.rssreader).SokaDaysGet(.rss)
+	}
+	</server>
+	<div class="boxw" style="width:285;height:200px;float:left;margin-left:10px;">
+		<a href="http://www.soka.ac.jp/soka_days/" target="_blank">
+		  <img src="imgtop/subtitle_days.jpg" width="285" height="30" border=0></a>
+		<div class="text" style="margin:5px;line-height:1.2em;">
+		  <csp:if condition=stopflg=0>
+			<img src="img/point-arrow.jpg" width="11" height="11" align="absmiddle">創大Days！
+			<div style="margin:2px 0px 10px 20px;">
+				<span style="font-weight:bolder;">#($G(rss("days","category")))# ： #($G(rss("days","prof")))#</span>
+				<div style="margin-left:10px;margin-top:2px;">
+					<a href="#($G(rss("days","link")))#" target="_blank">#($G(rss("days","title")))#</a>
+				</div>
+			</div>
+			<div style="margin:2px 0px 10px 0px;">
+			<img src="img/point-arrow.jpg" width="11" height="11" align="absmiddle">丹木の歳時記
+			　　<a href="#($G(rss("tangi","link")))#" target="_blank">#($G(rss("tangi","title")))#</a>
+			</div>
+			<img src="img/point-arrow.jpg" width="11" height="11" align="absmiddle">動画コンテンツ
+			<div style="margin:2px 0px 0px 30px;">
+				<a href="#($G(rss("movie","link")))#" target="_blank">#($G(rss("movie","title")))#</a>
+			</div>
+		  <csp:else>
+				ただいま創価大学ホームページの情報を取得できません。
+		  </csp:if>
+			　<div style="font-size:9px;text-align:right;">▼<a href="http://www.soka.ac.jp/soka_days/" target="_blank">サイトを表示...</a></div>
+		</div>
+	<server>Kill rss</server>
+	</div>
+	
+	<div style="clear:both;"></div>
+-->
+	</div>
+</div>
+<!-- 2.Sub Contents End-->
+</div>
+<!-- Content Area End-->
+
+
+
+<!-- Footer Area Start-->
+
+
+<!-- Footer Start-->
+
+<div id="footer">
+　<span class="text">Copyright(c) 2007, Soka University,Japan All Rights Reserved.</span>
+</div>
+
+<!-- Footer End-->
+
+<!-- Footer Area End-->
+
+
+</div><head>
+
+<!-- Put your page Title here -->
+<title>創価大学　学習支援ポータルサイト</title>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta name="Keywords" content="創価,大学,学習支援,ポータル,サイト,システム,ICT" lang="ja">
+<meta name="description" content="創価大学学習支援ポータルサイトへようこそ!このサイトは、学生生活の基盤となる学習活動の支援を主軸に、学生・教員・職員の学内情報を統括した情報ポータルサイトとして大学独自で開発致しました。内容は機能概要をご覧ください。">
+<link rel="stylesheet" href="text.css" type="text/css">
+<link rel="stylesheet" href="login.css" type="text/css">
+<link rel="shortcut icon" href="img/favicon.ico">
+<link href="library/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+<meta http-equiv="REFRESH" content="540; URL=login.csp">
+<!--ダイアログ用-->
+	<link rel="stylesheet" href="js/modal-message.css" type="text/css">
+	<script type="text/javascript" src="js/modal-message.js"></script>
+	<script type="text/javascript" src="js/ajax.js"></script>
+	<script type="text/javascript" src="js/ajax-dynamic-content.js"></script>
+<!--ダイアログ用-->
+<!-- jQuery -->
+<script src="library/jquery/jquery-311min.js"></script>
+<script src="library/jquery/ui1121/jquery-ui-1121min.js"></script>
+<script src="library/jquery/ui1121/jquery-ui-ja.js" charset="Shift-JIS"></script>
+<link rel="stylesheet" href="library/jquery/ui1121/jquery-ui-1121min.css" type="text/css">
+<link rel="stylesheet" href="library/jquery/ui1121/jquery-ui-theme-1121min.css" type="text/css">
+<!-- jQuery -->
+
+
+<script type="text/javascript">
+messageObj = new DHTML_modalMessage();	// We only create one object of this class
+messageObj.setShadowOffset(5);	// Large shadow
+
+function displayMessage(url)
+{
+	
+	messageObj.setSource(url);
+	messageObj.setCssClassMessageBox(false);
+	messageObj.setSize(510,220);
+	messageObj.setShadowDivVisible(true);	// Enable shadow for these boxes
+	messageObj.display();
+}
+
+function displayStaticMessage(messageContent,cssClass)
+{
+	messageObj.setHtmlContent(messageContent);
+	messageObj.setSize(510,270);
+	messageObj.setCssClassMessageBox(cssClass);
+	messageObj.setSource(false);	// no html source since we want to use a static message here.
+	messageObj.setShadowDivVisible(false);	// Disable shadow for these boxes	
+	messageObj.display();
+	
+	
+}
+
+function closeMessage()
+{
+	messageObj.close();	
+}
+
+</script>
+
+<script language="JavaScript">
+<!--
+function na_open_window(name, url, left, top, width, height, toolbar, menubar, statusbar, scrollbar, resizable)
+{
+  toolbar_str = toolbar ? 'Yes' : 'No';
+  menubar_str = menubar ? 'Yes' : 'No';
+  statusbar_str = statusbar ? 'Yes' : 'No';
+  scrollbar_str = scrollbar ? 'Yes' : 'No';
+  resizable_str = resizable ? 'Yes' : 'No';
+  window.open(url, name, 'left='+left+',top='+top+',width='+width+',height='+height+',toolbar='+toolbar_str+',menubar='+menubar_str+',status='+statusbar_str+',scrollbars='+scrollbar_str+',resizable='+resizable_str);
+}
+
+// -->
+</script>
+
+
+<script language="JavaScript" type="text/javascript" src="/csp/broker/cspxmlhttp.js"></script><script language="JavaScript" type="text/javascript" src="/csp/broker/cspbroker.js"></script></head>
+
+
+	
+
+
+
+
+
+
+
+
+
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="10" topmargin="10">
+
+
+
+
+
+</body></html>
